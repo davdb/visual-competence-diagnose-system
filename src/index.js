@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Root from "./views/Root/Root";
+import Core from "./pages/Core/Core";
 
-ReactDOM.render(<Root />, document.getElementById("app"));
+ReactDOM.render(<Core />, document.getElementById("app"));
