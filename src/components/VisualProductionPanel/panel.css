@@ -1,0 +1,140 @@
+.palette {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 10px 20px;
+   border-radius: 20px;
+   border: 2px solid #e6e6e6;
+   max-width: 250px;
+   width: 250px;
+}
+
+.shape {
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+    border: solid 2px black;
+}
+
+.line {
+    position: relative;
+    border: none;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' preserveAspectRatio='none' viewBox='0 0 100 100'><line x1='0' y1='0' x2='100' y2='100' stroke='black' stroke-width='2' vector-effect='non-scaling-stroke'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%, auto;
+}
+
+.circle {
+    width: 50px;
+    border-radius: 50%;
+}
+.canvastitle{
+    margin-left: 30px;
+}
+.image{
+    border: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+
+.triangle {
+    --t: 2px;
+    /* Thickness */
+    --c: black;
+    /* Color */
+
+    width: 50px;
+    display: inline-block;
+    border: var(--t) solid transparent;
+    border-bottom-color: var(--c);
+    background:
+        /* Left side */
+        linear-gradient(to bottom left,
+            transparent 49.5%, var(--c) 50% calc(50% + var(--t)),
+            transparent calc(50% + var(--t) + 1px)) right,
+        /* right side */
+        linear-gradient(to bottom right,
+            transparent 49.5%, var(--c) 50% calc(50% + var(--t)),
+            transparent calc(50% + var(--t) + 1px)) left;
+    background-size: 50% 100%;
+    background-origin: border-box;
+    background-repeat: no-repeat;
+}
+
+.triangle:before {
+    content: "";
+    display: block;
+    padding-top: 86.6%;
+}
+
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    border: 2px solid #e6e6e6;
+    border-radius: 20px;
+    z-index: 999;
+}
+
+.properties {
+    margin-top: 10px;
+}
+
+.key {
+    color: lightslategray;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+    height: 25px;
+}
+
+.value {
+    color: darkslategray;
+    font-weight: bolder;
+}
+
+.no-data {
+    color: darkslategray;
+}
+
+.canvas {
+     width: calc(100% - 400px);
+     max-width: 700px;
+    border: 2px solid #e6e6e6;
+    border-radius: 20px;
+    position: relative;
+    margin: 0 20px;
+}
+
+.buttons {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0 20px;
+    background-color: #e6e6e6;
+    border-radius: 20px;
+}
+
+.buttons button {
+    margin: 4px;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    background: #e6e6e6;
+    transition: all 0.25s ease-in;
+    z-index: 10;
+    border-radius: 20px;
+    border: none;
+}
+
+.buttons button:hover {
+    background: white;
+}

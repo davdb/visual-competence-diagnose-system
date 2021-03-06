@@ -3,9 +3,11 @@ import HomeTemplate from "../../templates/HomeTemplate";
 import HeroImage from "../../components/HeroImage/HeroImage";
 import { theme } from "../../theme/CoreTheme";
 
+import RegisterForm from "../../components/RegisterForm/RegisterForm";
+
 const PageView2 = () => (
   <HomeTemplate>
-    <HeroImage color={theme.palette.darkSaturn} slide="center" />
+    <RegisterForm />
   </HomeTemplate>
 );
 export default PageView2;

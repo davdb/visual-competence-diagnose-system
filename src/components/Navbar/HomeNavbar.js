@@ -1,70 +1,42 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 
-const StyledNav = styled.nav`
-  display: flex;
-  justify-content: space-around;
-  align-items: baseline;
-  transform: translate(10%, 40px);
-`;
-
-const StyledLogoWrapper = styled.div``;
-const StyledListWrapper = styled.div``;
-
-const StyledList = styled.ul`
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-`;
-
-const StyledListItem = styled.li`
-  padding: 10px;
-`;
-
-const StyledLink = styled.button`
-  color: black;
-  padding: 10px;
-  border-radius: 20px;
+const StyledLogo = styled.a`
+  display: block;
+  width: 150px;
+  height: 40px;
+  background-image: url("/img/svg/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
   border: none;
-  text-decoration: none;
-  &.active {
-    background-color: black;
-    color: white;
-  }
+  margin-top: 5px;
 `;
 
 const HomeNavbar = () => (
-  <StyledNav>
-    <StyledLogoWrapper></StyledLogoWrapper>
-    <StyledListWrapper>
-      <StyledList>
-        <StyledListItem>
-          <StyledLink as={NavLink} to="/" activeclass="active">
-            Główna
-          </StyledLink>
-        </StyledListItem>
-        <StyledListItem>
-          <StyledLink as={NavLink} to="/page-view-1" activeclass="active">
-            Test osobowy
-          </StyledLink>
-        </StyledListItem>
-        <StyledListItem>
-          <StyledLink as={NavLink} to="/page-view-2" activeclass="active">
-            Test grupowy
-          </StyledLink>
-        </StyledListItem>
-        <StyledListItem>
-          <StyledLink as={NavLink} to="/contact" activeclass="active">
-            Kontakt
-          </StyledLink>
-        </StyledListItem>
-      </StyledList>
-    </StyledListWrapper>
-  </StyledNav>
+  <div className="w-full container mx-auto p-6">
+    <div className="w-full flex items-center justify-between">
+      <StyledLogo
+        className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+        href="/"
+      ></StyledLogo>
+
+      <div className="flex w-1/2 justify-end content-center">
+        <a
+          className="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 "
+          data-tippy-content="#facebook_id"
+          href="https://www.facebook.com/davdbiernat"
+        >
+          <svg
+            className="fill-current h-6"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+          >
+            <path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
 );
 
 export default HomeNavbar;

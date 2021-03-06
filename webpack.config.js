@@ -1,5 +1,6 @@
 var path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -28,12 +29,21 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+      },
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "./src/theme/tailwind.css",
+      chunkFilename: "tailwind.css",
+    }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html",
+      favicon: "./src/favicon.ico",
     }),
   ],
 };
