@@ -39,7 +39,7 @@ const Inspector = () => {
               <ColorPicker
                 updateAttr={updateColorsAttr}
                 name="stroke"
-                defaultColor={selectedShape.stroke}
+                defaultColor={selectedShape ? selectedShape.stroke : "#000000"}
               />
             </div>
 
@@ -55,7 +55,7 @@ const Inspector = () => {
               <ColorPicker
                 updateAttr={updateColorsAttr}
                 name="fill"
-                defaultColor={selectedShape.fill}
+                defaultColor={selectedShape ? selectedShape.fill : "#ffffff"}
               />
             </div>
 

@@ -139,7 +139,7 @@ const RegisterForm = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      dispatch(register(email, password))
+      dispatch(register(email, age, password))
         .then(() => {
           setSuccessful(true);
         })

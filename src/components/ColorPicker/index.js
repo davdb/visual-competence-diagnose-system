@@ -10,6 +10,14 @@ const StyledButton = styled.button`
   background: ${(props) => props.defaultColor};
 `;
 
+const StyledPickerWrapper = styled.div`
+  position: absolute;
+`;
+
+const StyledTwitterPicker = styled(TwitterPicker)`
+  width: 140px !important;
+`;
+
 const ColorPicker = ({ name, defaultColor, updateAttr }) => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
   const [color, setColor] = useState("#fff");
@@ -31,8 +39,8 @@ const ColorPicker = ({ name, defaultColor, updateAttr }) => {
     <div>
       <StyledButton onClick={handleClick} defaultColor={color}></StyledButton>
       {displayColorPicker ? (
-        <div>
-          <TwitterPicker
+        <StyledPickerWrapper>
+          <StyledTwitterPicker
             onChange={handleOnChange}
             colors={[
               "#000000",
@@ -48,7 +56,7 @@ const ColorPicker = ({ name, defaultColor, updateAttr }) => {
               "#ffffff",
             ]}
           />
-        </div>
+        </StyledPickerWrapper>
       ) : null}
     </div>
   );

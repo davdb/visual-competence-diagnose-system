@@ -4,9 +4,10 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
 
 import { REGISTER_URL, LOGIN_URL } from "../api/endpoints";
 
-const register = (email, plainPassword) => {
+const register = (email, age, plainPassword) => {
   return axios.post(REGISTER_URL, {
     email,
+    age,
     plainPassword,
   });
 };

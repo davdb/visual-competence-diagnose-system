@@ -33,10 +33,8 @@ const StyledChartWrapper = styled.div`
 `;
 
 const CircleChart = ({ points, maxPoints }) => {
-  const result =
-    parseFloat(
-      parseFloat(points) / parseFloat(maxPoints ? maxPoints : 1)
-    ).toFixed(2) * 100;
+  var result = ((points / (maxPoints ? maxPoints : 1)) * 100).toFixed(2);
+
   return (
     <StyledChartWrapper>
       <section>

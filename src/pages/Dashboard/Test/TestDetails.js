@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { PDFViewer } from "@react-pdf/renderer";
 import DashboardTemplate from "../../../templates/DashboardTemplate";
 import { fetchTestDetails } from "../../../services/test.service";
 import ButtonIcon from "../../../components/Button/ButtonIcon";
 import CircleChart from "../../../components/Charts/CircleChart";
+import PDFDocument from "../../../components/PDFDocument/PDFDocument";
 
 import { IconX } from "@tabler/icons";
 
@@ -11,6 +13,11 @@ const StyledContainer = styled.div`
   padding: 10px 20px;
   border: 2px solid #e6e6e6;
   border-radius: 20px;
+
+  & iframe {
+    width: 100%;
+    height: 100vh;
+  }
 `;
 
 const StyledTitleContainer = styled.div`
@@ -84,34 +91,45 @@ const TestDetails = (props) => {
       </StyledTitleContainer>
       <StyledContainer>
         {test && (
-          <div>
-            <h2>Test zrealizowany: {test.createdAt}</h2>
-            <StyledOtherBox>
-              <StyledOtherBoxContainer>
-                <StyledOtherBoxWrapper>
-                  <small>Percepcja wizualna</small>
-                  <CircleChart
-                    points={test.perceptionPoints}
-                    maxPoints={test.perceptionMaxPoints}
-                  />
-                </StyledOtherBoxWrapper>
-                <StyledOtherBoxWrapper>
-                  <small>Kreowanie wizualne</small>
-                  <CircleChart
-                    points={test.productionPoints}
-                    maxPoints={test.productionMaxPoints}
-                  />
-                </StyledOtherBoxWrapper>
-                <StyledOtherBoxWrapper>
-                  <small>Odczyt wizualny</small>
-                  <CircleChart
-                    points={test.receptionPoints}
-                    maxPoints={test.receptionMaxPoints}
-                  />
-                </StyledOtherBoxWrapper>
-              </StyledOtherBoxContainer>
-            </StyledOtherBox>
-          </div>
+          <>
+            <div>
+              <h2>Test zrealizowany: {test.createdAt}</h2>
+              <StyledOtherBox>
+                <StyledOtherBoxContainer>
+                  <StyledOtherBoxWrapper>
+                    <small>Percepcja wizualna</small>
+                    <CircleChart
+                      points={test.perceptionPoints}
+                      maxPoints={test.perceptionMaxPoints}
+                    />
+                  </StyledOtherBoxWrapper>
+                  <StyledOtherBoxWrapper>
+                    <small>Kreowanie wizualne</small>
+                    <CircleChart
+                      points={test.productionPoints}
+                      maxPoints={test.productionMaxPoints}
+                    />
+                  </StyledOtherBoxWrapper>
+                  <StyledOtherBoxWrapper>
+                    <small>Odczyt wizualny</small>
+                    <CircleChart
+                      points={test.receptionPoints}
+                      maxPoints={test.receptionMaxPoints}
+                    />
+                  </StyledOtherBoxWrapper>
+                </StyledOtherBoxContainer>
+              </StyledOtherBox>
+            </div>
+            <PDFViewer>
+              <PDFDocument
+                createdAt={test.createdAt}
+                author={test.owner}
+                perception={test.perception}
+                reception={test.reception}
+                production={test.production}
+              />
+            </PDFViewer>
+          </>
         )}
       </StyledContainer>
     </DashboardTemplate>

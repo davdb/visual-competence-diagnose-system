@@ -35,6 +35,16 @@ module.exports = {
       },
     ],
   },
+  node: {
+    module: "empty",
+    dgram: "empty",
+    dns: "mock",
+    fs: "empty",
+    http2: "empty",
+    net: "empty",
+    tls: "empty",
+    child_process: "empty",
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "./src/theme/tailwind.css",

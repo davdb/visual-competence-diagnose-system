@@ -1,5 +1,16 @@
 import React, { useRef, useCallback, useState, useEffect } from "react";
+import styled from "styled-components";
 import { Layer, Stage } from "react-konva";
+
+const StyledStage = styled(Stage)`
+  width: 100%;
+  height: 100%;
+
+  & div.konvajs-content {
+    width: inherit !important;
+    height: inherit !important;
+  }
+`;
 
 import {
   useShapes,
@@ -98,10 +109,10 @@ const Canvas = ({ handleProductionContent }) => {
         </button>
       </div>
       <h2 className="canvastitle">Tablica</h2>
-      <Stage
+      <StyledStage
         ref={stageRef}
-        width={window.innerWidth - 400}
-        height={window.innerHeight}
+        width={600}
+        height={300}
         onClick={clearSelection}
       >
         <Layer>
@@ -113,7 +124,7 @@ const Canvas = ({ handleProductionContent }) => {
             />
           ))}
         </Layer>
-      </Stage>
+      </StyledStage>
     </main>
   );
 };
